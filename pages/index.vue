@@ -1,160 +1,178 @@
 <template>
-  <main>
-    <div class="">
-      <LandingHero />
-    </div>
-    <div class="pt-10">
-      <!-- <ImageMarquee /> -->
-      <CurrencyMarquee />
-    </div>
-    <div class="platform-container space-y-10 mt-32">
-      <div class="flex justify-center space-y-2 items-center flex-col">
-        <h2 class="text-[#1A1A1B] font-medium uppercase text-[20px]">Our Platform</h2>
-        <p class="text-[#1A1A1B] mx-3 lg:px-0 text-[28px] lg:text-6xl max-w-xs lg:max-w-6xl text-center">Gain seamless access to top-tier global payment solutions with a single contract and API integration.</p>
-      </div>
+  <div class="min-h-screen bg-white">
+    <!-- Header -->
+    <header class="bg-[#1e2a4a] text-white">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2">
+            <div class="bg-white rounded-lg p-2 w-10 h-10 flex items-center justify-center">
+             <img src="@/assets/img/logo.png" />
+            </div>
+          </div>
 
-      <div class="flex justify-center items-center">
-        <img src="@/assets/img/plattform.png" class="w-auto lg:h-[920px]" />
-      </div>
-    </div>
-    <PaymentTabs class="" />
-    <AboutUs class="pt-60 lg:pt-0" />
-    <GlobalTransferCard class="my-20" />
-    <CurrencyExchange />
-    <PlatformBenefits />
-     <section>
-      <div 
-          class="my-20 lg:my-44 text-center font-light leading-tight text-[#1A1A1B] max-w-5xl mx-auto transform translate-y-4"
-        >
-         <p class="font-medium py-4 text-[16px] lg:text-[20px] tracking-wider uppercase">INDUSTRY SOLUTIONS</p>
-         <h3 class="text-[28px] md:text-5xl p-3 text-[#1A1A1B] font-medium lg:text-6xl"> Capera unifies every essential tool for seamless global payments operations. Whether you're sending funds or collecting them, we streamline every step to simplify cross-border transactions.</h3>
+          <!-- Navigation -->
+          <nav class="hidden md:flex items-center space-x-8 text-base">
+            <a href="#stores" class="hover:text-gray-300 transition">Stores</a>
+            <a href="#groceries" class="hover:text-gray-300 transition">Groceries</a>
+            <a href="#categories" class="hover:text-gray-300 transition">Categories</a>
+            <a href="#about" class="hover:text-gray-300 transition">About us</a>
+          </nav>
+
+          <!-- Search Bar -->
+          <div class="hidden lg:flex items-center bg-[#2a3654] rounded-lg px-4 py-3 w-80 border border-[#3a4664]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-400" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Search for stores..."
+              class="bg-transparent border-none outline-none text-white placeholder-gray-400 ml-3 w-full"
+            />
+          </div>
+
+          <!-- Auth Buttons -->
+          <div class="hidden md:flex items-center space-x-4">
+            <button class="px-6 py-2.5 text-white hover:bg-[#2a3654] rounded-lg transition font-medium">
+              Login
+            </button>
+            <button class="px-6 py-2.5 bg-white text-[#1e2a4a] rounded-lg hover:bg-gray-100 transition font-medium">
+              Get Started
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
         </div>
-     </section>
+      </div>
+    </header>
 
-    <IndustryCarousel class="my-16" />
-    <TestimonialCarousel />
-    <SecuritySection />
-    <PaymentFooter 
-      title="Ready to start your CAPERA journey?" 
-      description="Join other business users today.
-Contact our professional service team to learn more or open an account online for free."
-      :actions="[
-        { text: 'Get started', onClick: () => console.log('Start clicked') },
-        { text: 'Contact Sales', onClick: () => console.log('Docs clicked') }
-      ]"
-    />
-  </main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-gray-50 to-white">
+      <div class="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="space-y-8">
+            <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+              Fresh <span class="text-[#22c55e]">groceries</span><br />
+              <span class="text-[#1e2a4a]">delivered to your<br />doorstep</span>
+            </h1>
+            
+            <p class="text-gray-600 text-lg leading-relaxed max-w-xl">
+              Shop from multiple supermarkets and local stores.<br />
+              Get fresh produce, household essentials, and<br />
+              more delivered in as little as 30 minutes.
+            </p>
+
+            <!-- Address Input -->
+            <div class="flex flex-col sm:flex-row gap-4 max-w-2xl">
+              <div class="flex-1 flex items-center bg-white border-2 border-gray-200 rounded-lg px-4 py-3.5 focus-within:border-[#1e2a4a] transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-400" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <input
+                  v-model="deliveryAddress"
+                  type="text"
+                  placeholder="Add your delivery address"
+                  class="bg-transparent border-none outline-none text-gray-700 placeholder-gray-400 ml-3 w-full"
+                />
+              </div>
+              <button class="bg-[#1e2a4a] text-white px-8 py-3.5 rounded-lg hover:bg-[#2a3654] transition font-medium whitespace-nowrap">
+                Start Shopping
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Image -->
+          <div class="relative">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=600&fit=crop"
+                alt="Woman shopping for groceries"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Decorative Wave -->
+    <div class="relative h-20 bg-white">
+      <svg class="absolute bottom-0 w-full" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0C240 40 480 60 720 60C960 60 1200 40 1440 0V120H0V0Z" fill="#1e2a4a"/>
+      </svg>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <section class="bg-[#1e2a4a] text-white py-16 lg:py-20">
+      <div class="container mx-auto px-4 lg:px-8">
+        <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16">Why Choose Us</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
+          <!-- Feature 1 -->
+          <div class="bg-[#2a3654] rounded-2xl p-6 hover:bg-[#343f5f] transition group">
+            <div class="flex items-center space-x-3 mb-2">
+              <div class="text-3xl">🚀</div>
+              <h3 class="text-lg font-semibold">Quick Onboarding</h3>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="bg-[#2a3654] rounded-2xl p-6 hover:bg-[#343f5f] transition group">
+            <div class="flex items-center space-x-3 mb-2">
+              <div class="text-3xl">🥇</div>
+              <h3 class="text-lg font-semibold">Quality products</h3>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="bg-[#2a3654] rounded-2xl p-6 hover:bg-[#343f5f] transition group">
+            <div class="flex items-center space-x-3 mb-2">
+              <div class="text-3xl">⭐</div>
+              <h3 class="text-lg font-semibold">Trusted stores</h3>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="bg-[#2a3654] rounded-2xl p-6 hover:bg-[#343f5f] transition group">
+            <div class="flex items-center space-x-3 mb-2">
+              <div class="text-3xl">💪</div>
+              <h3 class="text-lg font-semibold">High rated riders</h3>
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="bg-[#2a3654] rounded-2xl p-6 hover:bg-[#343f5f] transition group">
+            <div class="flex items-center space-x-3 mb-2">
+              <div class="text-3xl">📞</div>
+              <h3 class="text-lg font-semibold whitespace-nowrap">24/7 Support for Customers, Vendors,</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
-// import { useHead, useSeoMeta } from '#head'
-import { useHead } from '#app' // or 'nuxt/app'
-import { useSeoMeta } from '#imports' // or directly from 'nuxt/head'
-import GlobalPayments from '~/components/GlobalPayments.vue';
-import GlobalPayouts from '~/components/GlobalPayouts.vue';
-import IndustryCarousel from '../components/IndustryCarousel.vue';
-
-// Basic page metadata
-definePageMeta({
-  title: 'CAPERA - Move Money Globally',
-  description: 'Access top-tier global payment solutions with a single contract and API integration. Simplify cross-border transactions, currency exchange, and international payments.'
-})
-
-// Enhanced SEO with useHead for basic head elements
-useHead({
-  title: 'CAPERA - Move Money Globally',
-  titleTemplate: '%s | Simplify Cross-Border Transactions',
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://yourdomain.com'
-    }
-  ],
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { charset: 'utf-8' }
-  ]
-})
-
-// Comprehensive SEO meta tags with useSeoMeta
-useSeoMeta({
-  title: 'CAPERA - Move Money Globally',
-  description: 'Access top-tier global payment solutions with a single contract and API integration. Simplify cross-border transactions, currency exchange, and international payments with CAPERA.',
-  
-  // OpenGraph meta tags for social sharing
-  ogTitle: 'CAPERA - Move Money Globally',
-  ogDescription: 'Access top-tier global payment solutions with a single contract and API integration. Join other businesses using CAPERA for seamless cross-border transactions.',
-  ogImage: 'https://yourdomain.com/images/capera-homepage-og.jpg',
-  ogUrl: 'https://yourdomain.com',
-  ogType: 'website',
-  ogSiteName: 'CAPERA',
-  
-  // Twitter Card meta tags
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'CAPERA - Move Money Globally',
-  twitterDescription: 'Access top-tier global payment solutions with a single contract and API integration. Join other businesses using CAPERA for seamless cross-border transactions.',
-  twitterImage: 'https://yourdomain.com/images/capera-homepage-og.jpg',
-  
-  // Additional SEO meta tags
-  keywords: 'CAPERA, global payments, currency exchange, cross-border transactions, international payments, payment platform, financial services, USD, CNY, RMB, NGN',
-  robots: 'index, follow',
-  author: 'CAPERA',
-  applicationName: 'CAPERA Payment Platform',
-})
-
-// Structured data for rich search results - using Organization and WebSite schema
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'CAPERA',
-    url: 'https://yourdomain.com',
-    logo: 'https://yourdomain.com/images/logo.png',
-    description: 'CAPERA provides global payment solutions and currency exchange services for businesses worldwide.',
-    sameAs: [
-      'https://twitter.com/capera',
-      'https://www.linkedin.com/company/capera',
-      'https://www.facebook.com/capera'
-    ],
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        telephone: '+1-123-456-7890',
-        contactType: 'customer service',
-        areaServed: 'Worldwide',
-        availableLanguage: ['English', 'Spanish', 'French']
-      },
-      {
-        '@type': 'ContactPoint',
-        telephone: '+1-123-456-7891',
-        contactType: 'sales',
-        areaServed: 'Worldwide',
-        availableLanguage: ['English', 'Spanish', 'French']
-      }
-    ]
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'CAPERA',
-    url: 'https://yourdomain.com',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://yourdomain.com/search?q={search_term_string}',
-      'query-input': 'required name=search_term_string'
-    }
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://yourdomain.com'
-      }
-    ]
-  }
-]
+const searchQuery = ref('');
+const deliveryAddress = ref('');
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+</style>
