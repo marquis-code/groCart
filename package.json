@@ -25,6 +25,7 @@
     "@nuxtjs/robots": "^5.2.8",
     "@nuxtjs/sitemap": "^7.2.9",
     "@nuxtjs/tailwindcss": "^6.12.2",
+    "@tabler/icons-vue": "^3.22.0",
     "@vueuse/core": "^13.0.0",
     "aos": "^3.0.0-beta.6",
     "lucide-vue-next": "^0.483.0"

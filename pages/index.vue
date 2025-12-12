@@ -6,9 +6,7 @@
         <div class="flex items-center justify-between h-20">
           <!-- Logo -->
           <div class="flex items-center space-x-2">
-            <div class="bg-white rounded-lg p-2 w-10 h-10 flex items-center justify-center">
-             <img src="@/assets/img/logo.png" />
-            </div>
+             <img src="@/assets/img/logo.png" class="h-10 w-auto" />
           </div>
 
           <!-- Navigation -->
@@ -96,7 +94,7 @@
           <div class="relative">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=600&fit=crop"
+                src="@/assets/img/user-shopping.png"
                 alt="Woman shopping for groceries"
                 class="w-full h-auto object-cover"
               />
@@ -105,6 +103,18 @@
         </div>
       </div>
     </section>
+
+
+        <main class="container mx-auto px-4 py-8 md:py-12">
+      <!-- Categories Section -->
+      <CategoriesSection />
+
+      <!-- Mobile App Section -->
+      <MobileAppSection />
+
+      <!-- Join Network Section -->
+      <JoinNetworkSection />
+    </main>
 
     <!-- Decorative Wave -->
     <div class="relative h-20 bg-white">

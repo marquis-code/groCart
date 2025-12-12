@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Capera - Move Money Globally",
+      title: 'Grocart - Shop Easy, Live Fresh',
       htmlAttrs: { lang: "en" },
       meta: [
         { charset: "utf-8" },
